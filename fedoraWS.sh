@@ -67,7 +67,9 @@ cd $HOME/Apps/eclipse-installer
 cd $HOME/Apps
 rm -rf $HOME/Apps/eclipse-installer
 
-mv ./extras/fonts $HOME
+cp -r ./extras/fonts $HOME
+mv $HOME/fonts $HOME/.fonts
+
 sudo systemctl enable --now xrdp
 firewall-cmd --add-port=3309/tcp
 firewall-cmd --runtime-to-permanent

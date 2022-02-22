@@ -1,11 +1,8 @@
 #!/bin/bash
 
 ##### ======================================================================== #####
-##### NOME:                                                                    #####
-##### VERSÃO:            0.1.btest                                             #####
-##### DESCRIÇÃO:         Script criado com a finalidade de familiarização      #####
-#####                    com o shell script, para agilizar a configuração      #####
-#####	                 do meu workspace.                                     #####
+##### NOME:              fedoraWS                                              #####
+##### VERSÃO:            v1.0t                                                 #####
 ##### DATA DA CRIAÇÃO:   19/02/2022                                            #####
 ##### ESCRITO POR:       Pedro Henrique                                        #####
 ##### DISTRO:            Fedora 35                                             #####
@@ -24,7 +21,6 @@ APPS_TO_INSTALL=(
     java-1.8.0-openjdk
     java-11-openjdk
     google-chrome-stable
-    vim
     flameshot
 )
 
@@ -37,7 +33,6 @@ rpmExtra() {
     sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     sudo dnf -y install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 }
-
 
 updateSystem
 
@@ -69,7 +64,10 @@ clear
 
 cd $HOME/Apps/eclipse-installer
 ./eclipse-inst
+cd $HOME/Apps
+rm -rf $HOME/Apps/eclipse-installer
 
+mv ./extras/fonts $HOME
 sudo systemctl enable --now xrdp
 firewall-cmd --add-port=3309/tcp
 firewall-cmd --runtime-to-permanent
